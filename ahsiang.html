@@ -1,0 +1,327 @@
+<!--111-1 網頁程式設計專題 鄉鎮：鹿草鄉 名稱：鹿上有草 美食推薦 阿香當歸鴨肉-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="author" content="Grass on the Deer">
+		<meta name=“keywords” content=“webprogramming”>
+		<meta name="viewport" content="width=device-width; initialscale=1.0; maximum-scale=1.0; user-scalable=0;">
+		<title>鹿上有草 | 美食推薦 - 阿香當歸鴨肉</title>
+    <link rel="icon" href="./img/lucao.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script> 
+	</head>
+	<body bgcolor=#e2f0d9>
+		<style type="text/css">
+        .main{
+          width: 1500px;
+          margin: auto;
+          background-color: #e2f0d9;
+          overflow: hidden;
+        }
+        .topp{ /*頂部標題*/
+          float: middle;
+          text-align: middle5;
+          width: 100%;
+          height: 200px;
+          border: solid 1px none;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .toplogo{ /*頂部LOGO*/
+          float: left;
+          width: 286px;
+          padding: 20px;
+        }
+        .toplogo img{
+          display: block;
+          width:55%;
+        }
+        #title{
+          margin-top: 20px;
+          margin-left: -40px;
+        }
+        .menu{ /*功能選單*/
+          position: sticky;
+          float: left;
+          text-align: right;
+          width: 100%;
+          height: 40px;
+          margin: 10px auto;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .menu a:hover {
+          opacity:0.7;
+        }
+        .box{ /*景點選單*/
+          width: 100%;
+          /*margin: 10px auto;*/
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #afbfac;
+          /*user-select:none;*/
+          /*-webkit-user-select:none;*/
+          /*-moz-user-select:none;*/
+        }
+        .attract_title{
+          position: relative;
+          left: 20px;
+        }
+        .textslider{ /*文字*/
+          position: relative;
+          width: 900px;
+          left: 20%;
+          letter-spacing: 3px;
+          line-height: 1.75;
+        }
+        .bottom{
+          width: 100%;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #e2f0d9;
+        }
+        .copyright{
+          float: left;
+          padding: 20px;
+        }
+        .tbocc{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 300px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .tbocc img{
+          display: block;
+          width: 100%;
+        }
+        .office{
+          display: flex;
+          justify-content: center; 
+          align-items: center;
+          float: left;
+          width: 200px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .office img{
+          display: block;
+          width: 100%;
+        }
+        .qr-code{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 120px;
+          height: 120px;
+          margin: 0 auto;
+          margin-left: 30px;
+          margin-top: 10px;
+        }
+        .qr-code img{
+          display: block;
+          width: 100%;
+        }
+        .up_arrow{
+          position: sticky;
+          float: right;
+          width: 32px;
+          padding: 20px;
+        }
+        .up_arrow img{
+          display: default;
+          width: 100%;
+        }
+        .up_arrow a:hover {
+          opacity: 0.7;
+    		}
+        .container{
+          width: 1500px;
+          height: 900px;
+          position: relative;
+          overflow: hidden;
+          background-color: #afbfac;
+        }
+        .container img{
+          margin: 0 auto; 
+        }
+        .slider{
+          width: 100%;
+          height: 600px;
+          position: absolute;
+          overflow: hidden;
+          background-color: #e2f0d9;
+        }
+        .slider img{
+          margin: 0 auto;
+        }
+        .slick-dots li.slick-active button:before {
+          color: gray !important;
+        }
+        .sliderTwo{
+          background-color: #afbfac;
+        }
+        .slider-nav{
+          background-color: #afbfac;
+        }
+        .bg-primary{
+          background-color: #e2f0d9;
+        }
+    	</style>
+    <div class="main"><!---防止縮放後版面跑掉--->
+      <div class="topp">
+        <div class="toplogo">
+            <a href="project.html"><img src="./img/toplogo.png" id="toplogo" alt="回到首頁"/></a>
+        </div>
+        <a href="project.html" title="鹿上有草" aria-pressed="false"><img src="./img/title.jpg" width="" id="title" alt="鹿上有草"/></a>
+      </div>
+        <div class="menu" align="left">
+          <a href="project.html" title="首頁" aria-pressed="false"><img src="./img/homepage.png" id="homepage" alt="首頁"/></a>
+          <a href="about.html" title="關於鹿草" aria-pressed="false"><img src="./img/about.png" id="about" alt="關於鹿草"/></a>
+          <a href="attract.html" title="景點導覽" aria-pressed="false"><img src="./img/attract.png" id="attract" alt="景點導覽"/></a>
+          <a href="store.html" title="線上商店" aria-pressed="false"><img src="./img/store.png" id="store" alt="線上商店"/></a>
+          <a href="food.html" title="美食推薦" aria-pressed="false"><img src="./img/food.png" id="food" alt="美食推薦"/></a>
+          <a href="ourteam.html" title="關於我們" aria-pressed="false"><img src="./img/team.png" id="team" alt="關於我們"/></a>
+        </div>
+        <hr width="100%" size="2" color="#89ab80" noshade>
+        <div class="box">
+          <div class="attract_title">
+            <p style="color:#423d2d; font-weight:bold"><font size="9"><br>▌ 阿香當歸鴨肉</font></p>
+            <br>
+          </div>
+        </div>
+        <div class="sliderTwo">
+          <div>
+            <div class="d-flex">
+              <div class="col-md">
+                <img src="./food/ahsiang_1.jpg" class="w-540 h-600" alt="阿香當歸鴨肉1" width="540" height="600">
+              </div>
+              <div class="col-md">
+                <img src="./food/ahsiang_2.jpg" class="w-900 h-600" alt="阿香當歸鴨肉2" width="900" height="600">
+              </div>
+            </div>
+            <br>
+          </div>
+          <div>
+            <div class="d-flex">
+              <div class="col-md">
+                <img src="./food/ahsiang_3.jpg" class="w-900 h-600" alt="阿香當歸鴨肉3" width="900" height="600">
+              </div>
+              <div class="col-md">
+                <img src="./food/ahsiang_4.jpg" class="w-540 h-600" alt="阿香當歸鴨肉4" width="540" height="600">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <hr width="100%" size="2" color="#89ab80" noshade>
+          <div class="textslider">
+            <p style="color:#423d2d; font-weight:bold"><font size="5"><br>▌ 美食簡介</font></p>
+            <p style="color:#423d2d; font-weight:normal"><font size="4">
+              　　這間「阿香當歸鴨肉」是本團隊在旅行途中無意間發現的，店鋪小小的也沒什麼裝潢，從外面看其實並不起眼，那為何會吸引到我們呢？！那是因為……他們當歸的味道實在是太香了！（腦中立刻浮現出當時的場景）那天傍晚，我們從遠方行駛而過，原本是要前去下一個景點的，但在經過「阿香當歸鴨肉」時，大家明顯都放慢了速度，於是一行人在對視後，決定先停下來進去享用晚餐，所以說……阿「香」啊 阿「香」～果然不虛此名www<br><br>
+              　　與以往在市區吃的鴨肉飯不同，他們的飯上面會鋪一層滿滿的酸菜，鮮嫩Q彈的鴨肉，配上鮮脆且帶有甘甜味的酸菜一同入口，讓酸、甜與鹹這三種味道在口中交織出另一種風味，最後，再配上一碗清淡順口的當歸湯，除了替我們解了不少油膩，也讓全身跟著暖和起來了呢～</font></p>
+          </div>
+        </div>
+        <div class="box">
+          <hr width="100%" size="2" color="#89ab80" noshade>
+          <div class="textslider">
+            <p style="color:#423d2d; font-weight:bold"><font size="5"><br>▌ 交通資訊</font></p>
+            <p style="color:#423d2d;"><font size="4"><br>開車<br><br>
+            在國道一號於272-嘉義系統出口下交流道，朝東石前進，走台82線，於18-鹿草下交流道，經167縣道在長壽路口左轉，並沿途約110公尺即可抵達。</font></p><br>
+            <p style="color:#423d2d;"><font size="4">騎車<br><br>
+            從嘉義市區出發，由民生南路沿途行163縣道，經嘉柳公路、嘉鹿公路，於鹿草路/長壽路口右轉，並直行約400公尺即可抵達。</font></p><br>
+            <p style="color:#423d2d;"><font size="4">公車<br><br>
+            搭乘嘉義客運7201路【嘉義-竹子腳-鹽水】、7213路【嘉義-鹿草-樹林頭】、7208路【嘉義-重寮-鹽水】、阿里山客運166路【高鐵嘉義站-鹽水】等路線至鹿草下車，往長壽路向北步行400公尺，約5分鐘即可抵達。</font></p>
+          </div>
+          <br>
+        </div>
+        <div class="box">
+          <hr width="100%" size="2" color="#89ab80" noshade>
+          <div class="textslider">
+            <p style="color:#423d2d; font-weight:bold"><font size="5"><br>▌ 營業資訊</font></p>
+            <p style="color:#423d2d; font-weight:normal"><font size="4"><br>營業時間：06：30 ~ 14：00；16：30 ~ 19：00（每週一、三、五、六）
+              <br>　　　　　06：30～14：00（每週二、四、日）<br>
+              連絡電話：<a href="tel:+886-5-3752179" style="color:#423d2d">05 3752179</a><br></font></p>
+          </div>
+          <br>
+        </div>
+        <div class="box">
+          <hr width="100%" size="2" color="#89ab80" noshade>
+          <div class="textslider">
+            <p style="color:#423d2d; font-weight:bold; margin-bottom: 5px;"><font size="5"><br>▌ 店家位置</font></p>
+            <p style="color:#423d2d; font-weight:normal; margin-bottom: 5px;"><font size="4"><br>嘉義縣鹿草鄉安和街322號</font></p><br>
+          </div>
+          <center><div style="border:4px #423d2d solid; width:910; height:610; vertical-align: middle;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1830.6763480960876!2d120.30690330805528!3d23.411623246189396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e9ae61388da63%3A0x6f199d3ecd6e6739!2z6Zi_6aaZ55W25q246bSo6IKJ!5e0!3m2!1szh-TW!2stw!4v1673123453012!5m2!1szh-TW!2stw" width="900" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></center>
+          <p>
+          <br>
+        </div>
+        <hr width="100%" size="2" color="#89ab80" noshade>
+    		<div class="bottom">
+    			<div class="copyright">
+    	        <p style="color:#423d2d">© 嘉大資管 鹿上有草</p>
+    	        <p style="color:#423d2d">Website Design By 鹿上有草</p>
+              <p style="color:#423d2d">更新日期：2023年01月03日</p>
+          </div>
+          <div class="tbocc">
+              <a href="https://tbocc.cyhg.gov.tw/" title="嘉義縣文化觀光局" aria-pressed="false"><img src="./img/tbocc.png" id="tbocc" alt="嘉義縣文化觀光局"/></a>
+          </div>
+          <div class="office">
+              <a href="https://lutsau.cyhg.gov.tw/Default.aspx" title="鹿草鄉公所" aria-pressed="false"><img src="./img/lutsao.png" id="lutsao" alt="鹿草鄉公所"/></a>
+          </div>
+          <div class="qr-code">
+            <a href="https://www.youtube.com/watch?v=cKyZvwjsN6E" title="QR Code" aria-pressed="false"><img src="./img/qr-code.png" id="qr-codeo" alt="網頁程式設計期末專題_第四組_鹿上有草 - YouTube"/></a>
+          </div>
+    	    <div class="up_arrow">
+    	        <a href="#" title="up_arrow" aria-pressed="false"><img src="./img/up-arrow.png" id="top" alt="up_arrow" /></a>
+        	</div>
+    	  </div>
+      </div>
+      <script>
+        $(function(){
+          $(".sliderRow").slick({
+            rows: 1,
+            infinite: false,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            dots: true, // 預設 false 指示點
+          });
+          $('.sliderTwo').slick({
+            rows: 1,
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true, // 預設 false 指示點
+          });
+          $('.slider-for').slick({
+            slidesToShow: 1, //預設 1 幻燈片顯示幾張
+            slidesToScroll: 1,//預設 1 幻燈片每次滑動幾張
+            arrows: false, // 預設 true 左右箭頭是否顯示
+            fade: true, // 預設 false 淡入淡出
+            asNavFor: '.slider-nav'//將滑塊設置為其他滑塊的導航（類或ID名稱）,適用於多個輪播圖共用一個導航
+          });
+          $('.slider-nav').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            dots: true, // 預設 false 指示點
+            arrows: false, // 預設 true 左右箭頭是否顯示
+            focusOnSelect: true // 預設 false
+          });  
+        });
+        function slickGoTo(key){
+          $('.slider-nav').slick('slickGoTo', key);
+        }
+      </script>
+	</body>
+</html>

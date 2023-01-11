@@ -1,0 +1,343 @@
+<!--111-1 網頁程式設計專題 鄉鎮：鹿草鄉 名稱：鹿上有草 關於鹿草-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="author" content="Grass on the Deer">
+		<meta name=“keywords” content=“webprogramming”>
+		<meta name="viewport" content="width=device-width; initialscale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Noto+Sans+TC:wght@900&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+		<title>鹿上有草 | 關於鹿草</title>
+    <link rel="icon" href="./img/lucao.ico" type="image/x-icon"/>
+	</head>
+	<body bgcolor=#e2f0d9>
+		<style type="text/css">
+        @import url(https://fonts.googleapis.com/earlyaccess/cwtexming.css);
+        .main{
+          width: 1500px;
+          margin: auto;
+        }
+        .topp{ /*頂部標題*/
+          float: middle;
+          text-align: middle5;
+          width: 100%;
+          height: 200px;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .toplogo{ /*頂部LOGO*/
+          float: left;
+          width: 246px;
+          padding: 20px;
+        }
+        .toplogo img{
+          display: block;
+          width:55%;
+        }
+        #title{
+          margin-top: 20px;
+          margin-left: -40px;
+        }
+        .menu{ /*功能選單*/
+          position: sticky;
+          float: left;
+          text-align: right;
+          width: 100%;
+          height: 40px;
+          margin: 10px auto;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .menu a:hover {
+          opacity:0.7;
+        }
+        .box{ /*簡介*/
+          width: 100%;
+          margin: 0px auto;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #afbfac;
+        }
+        .map{
+          float: left;
+          width: 900px;
+          margin: 0 auto;
+        }
+        .map img{
+          display: block;
+          width: 100%;
+        }
+        .content{
+          float: right;
+          position: relative;
+          top: 30px;
+          left: -40px;
+          width: 600px;
+          height: 400px;
+          color: #423d2d;
+          font-family: "cwTeXMing", serif;
+          font-weight: bold;
+          font-size: 20px;
+          text-indent: 50px;
+          letter-spacing: 3px;
+          line-height: 1.75;
+          text-align: left;
+          vertical-align: middle;
+          margin: 0 auto;
+          /*background-image: url(./img/intro.jpg);*/
+        }
+        .midbox{
+          width: 1500px;
+          float: left;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #afbfac;
+        }
+        .contentl{
+          float: left;
+          position: relative;
+          top: 30px;
+          left: 150px;
+          width: 600px;
+          height: 400px;
+          color: #423d2d;
+          font-family: "cwTeXMing", serif;
+          font-weight: bold;
+          font-size: 20px;
+          text-indent: 50px;
+          letter-spacing: 3px;
+          line-height: 1.75;
+          text-align: left;
+          vertical-align: middle;
+          margin: 0 auto;
+          /*background-image: url(./img/intro.jpg);*/
+        }
+        .bottom{
+          width: 100%;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+        }
+        .copyright{
+          float: left;
+          padding: 20px;
+        }
+        .tbocc{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 300px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .tbocc img{
+          display: block;
+          width: 100%;
+        }
+        .office{
+          display: flex;
+          justify-content: center; 
+          align-items: center;
+          float: left;
+          width: 200px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .office img{
+          display: block;
+          width: 100%;
+        }
+        .qr-code{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 120px;
+          height: 120px;
+          margin: 0 auto;
+          margin-left: 30px;
+          margin-top: 10px;
+        }
+        .qr-code img{
+          display: block;
+          width: 100%;
+        }
+        .up_arrow{
+          position: sticky;
+          float: right;
+          width: 32px;
+          padding: 20px;
+        }
+        .up_arrow img{
+          display: default;
+          width: 100%;
+        }
+        .up_arrow a:hover{
+          opacity: 0.7;
+        }
+        /*.content {
+          width: 100vw;
+          height: 100vh;
+        }
+        .bgWrap {
+          width: 1344px;
+          height: 1008px;
+          margin: 150px auto;
+          background-position: center center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+        .container{
+          display: flex;
+          justify-content: center; 
+          align-items: center;
+          font-style: georgia;
+          font-weight: 600;
+          font-size: 36px;
+          color: #423d2d;
+        }
+        .bg1 {
+          background-image: url(./img/bg1.jpg);
+        }
+        .bg2 {
+          background-image: url(./img/bg2.jpg);
+        }
+        .bg3 {
+          background-image: url(./img/bg3.jpg);
+        }
+        .bg4 {
+          background-image: url(./img/bg4.jpg);
+        }
+        .bg5 {
+          background-image: url(./img/bg5.jpg);
+        }*/
+    </style>
+    <!--<script>
+      <button id="attachmentFix">視差滾動</button>
+      <button id="attachmentScroll">不要視差滾動</button>
+      const attachmentFix = document.getElementById('attachmentFix')
+      const attachmentScroll = document.getElementById('attachmentScroll')
+
+      const bgWraps = document.querySelectorAll('.bgWrap')
+
+      attachmentFix.addEventListener('click', ()=>{
+        bgWraps.forEach((bgWrap)=>{
+          bgWrap.style.backgroundAttachment = 'fixed'
+        })
+      })
+      attachmentScroll.addEventListener('click', ()=>{
+        bgWraps.forEach((bgWrap)=>{
+          bgWrap.style.backgroundAttachment = 'scroll'
+        })
+      })
+      const changeAttachmentFix = ()=>{
+          bgWraps.forEach((bgWrap)=>{
+              bgWrap.style.backgroundAttachment = 'fixed'
+          })
+        }
+
+      const changeAttachmentScroll = ()=>{
+        bgWraps.forEach((bgWrap)=>{
+          bgWrap.style.backgroundAttachment = 'scroll'
+        })
+      }
+
+      attachmentFix.addEventListener('click', changeAttachmentFix)
+      attachmentScroll.addEventListener('click', changeAttachmentScroll)
+
+      attachmentFix.onclick = changeAttachmentFix
+      attachmentScroll.onclick = changeAttachmentScroll
+
+      window.onload = function(){}
+    </script>-->
+    <div class="main"><!---防止縮放後版面跑掉--->
+      <div class="topp">
+        <div class="toplogo">
+            <a href="project.html"><img src="./img/toplogo.png" id="toplogo" alt="回到首頁"/></a>
+        </div>
+        <a href="project.html" title="鹿上有草" aria-pressed="false"><img src="./img/title.jpg" id="title" alt="鹿上有草"/></a>
+      </div>
+      <div class="menu" align="left">
+        <a href="project.html" title="首頁" aria-pressed="false"><img src="./img/homepage.png" id="homepage" alt="首頁"/></a>
+        <a href="about.html" title="關於鹿草" aria-pressed="false"><img src="./img/about.png" id="about" alt="關於鹿草"/></a>
+        <a href="attract.html" title="景點介紹" aria-pressed="false"><img src="./img/attract.png" id="attract" alt="景點介紹"/></a>
+        <a href="store.html" title="線上商店" aria-pressed="false"><img src="./img/store.png" id="store" alt="線上商店"/></a>
+        <a href="food.html" title="美食推薦" aria-pressed="false"><img src="./img/food.png" id="food" alt="美食推薦"/></a>
+        <a href="ourteam.html" title="關於我們" aria-pressed="false"><img src="./img/team.png" id="team" alt="關於我們"/></a>
+      </div>
+  		<div class="box">
+        <div class="map">
+          <img src="./img/CYQ_LC.png" style="width: 825px; height: 450px; left: 1050px;">
+          
+        </div>
+        <div class="content">
+          <font size="8"><b>鹿草鄉 </b></font><font size="6"><b>Lucao Township</b></font><br>
+          <hr width="100%" size="2" color="#89ab80" align="center" noshade>
+          <br>
+          舊稱「鹿仔草」，位於臺灣嘉義縣西南部，北鄰太保市、朴子市，東鄰水上鄉，西鄰義竹鄉，南接臺南市後壁區。鹿草鄉位處嘉南平原之上，八掌溪北岸，地勢平坦，年均溫約22.8℃，氣候上屬副熱帶季風氣候與熱帶季風氣候的過渡帶。並與緊臨之嘉義都會區，屬同一生活圈，近年興建馬稠後產業園區有助於地方工業發展和結合觀光休閒，設計環繞園區的空中「策馬橋飛輿自行車道」。
+        </div>
+      </div>
+      <div class="midbox">
+        <div class="contentl">
+          <br>
+          <font size="8"><b>簡介 </b></font><font size="6"><b>Introduction</b></font><br>
+          <hr width="100%" size="2" color="#89ab80" align="center" noshade>
+          <br>
+          <font>
+          <b>　人　口　</b>14,532人（2022年11月）<br>
+          <b>　面　積　</b>54.3151 km²<br>
+          <b>郵遞區號　</b>611<br>
+          <b>行政區劃　</b>15村255鄰<br>
+        </div>
+        <img src="./img/vilmap.png" style="width: 450px; height: 450px; margin-left: 300px;">         
+      </div>
+      <div class="box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58583.772413368715!2d120.27331714531508!3d23.4068129983733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e9add30f58503%3A0x6dfe4fcc54c51e43!2zNjEx5ZiJ576p57ij6bm_6I2J6YSJ!5e0!3m2!1szh-TW!2stw!4v1672733496436!5m2!1szh-TW!2stw" width="820" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+        <div class="content">
+          <br><br><br><br><center><font size="8"><b>位置 </b></font><font size="6"><b>Location of Lucao</b></font></center>
+          <hr width="100%" size="2" color="#89ab80" align="center" noshade>
+          <br>
+        </div>
+      </div>
+      <!--<div class="content">
+        <div class="bgWrap bg1"></div>
+        <div class="container">Lucao</div>
+        <div class="bgWrap bg2"></div>
+        <div class="container">Bountiful</div>
+        <div class="bgWrap bg3"></div>
+        <div class="container">Human Touch</div>
+        <div class="bgWrap bg4"></div>
+        <div class="container">Natural</div>
+        <div class="bgWrap bg5"></div>
+        <div class="container">Greenery</div>
+      </div>-->
+  		<div class="bottom">
+  			<div class="copyright">
+  	        <p style="color:#423d2d">© 嘉大資管 鹿上有草</p>
+  	        <p style="color:#423d2d">Website Design By 鹿上有草</p>
+            <p style="color:#423d2d">更新日期：2023年01月03日</p>
+        </div>
+        <div class="tbocc">
+            <a href="https://tbocc.cyhg.gov.tw/" title="嘉義縣文化觀光局" aria-pressed="false"><img src="./img/tbocc.png" id="tbocc" alt="嘉義縣文化觀光局"/></a>
+        </div>
+        <div class="office">
+            <a href="https://lutsau.cyhg.gov.tw/Default.aspx" title="鹿草鄉公所" aria-pressed="false"><img src="./img/lutsao.png" id="lutsao" alt="鹿草鄉公所"/></a>
+        </div>
+        <div class="qr-code">
+            <a href="https://www.youtube.com/watch?v=cKyZvwjsN6E" title="QR Code" aria-pressed="false"><img src="./img/qr-code.png" id="qr-codeo" alt="網頁程式設計期末專題_第四組_鹿上有草 - YouTube"/></a>
+        </div>
+  	    <div class="up_arrow">
+  	        <a href="#" title="up_arrow" aria-pressed="false"><img src="./img/up-arrow.png" id="top" alt="up_arrow" /></a>
+      	</div>
+  	  </div>
+    </div>
+	</body>
+</html>

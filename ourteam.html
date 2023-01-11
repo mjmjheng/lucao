@@ -1,0 +1,624 @@
+<!--111-1 網頁程式設計專題 鄉鎮：鹿草鄉 名稱：鹿上有草 關於我們-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="author" content="Grass on the Deer">
+		<meta name=“keywords” content=“webprogramming”>
+		<meta name="viewport" content="width=device-width; initialscale=1.0; minimum-scale=0; user-scalable=0;">
+		<title>鹿上有草 | 關於我們</title>
+    <link rel="icon" href="./img/lucao.ico" type="image/x-icon"/>
+	</head>
+	<body bgcolor=#e2f0d9>
+		<style type="text/css">
+        .main{
+          width: 1500px;
+          margin: auto;
+        }
+        .topp{ /*頂部標題*/
+          text-align: middle5;
+          width: 1500px;
+          height: 200px;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .toplogo{ /*頂部LOGO*/
+          float: left;
+          width: 246px;
+          padding: 20px;
+        }
+        .toplogo img{
+          display: block;
+          width:55%;
+        }
+        #title{
+          margin-top: 20px;
+          margin-left: -40px;
+        }
+        .menu{ /*功能選單*/
+          position: sticky;
+          float: left;
+          text-align: right;
+          width: 1500px;
+          height: 40px;
+          margin: 10px auto;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .menu a:hover {
+          opacity:0.7;
+        }
+        #teammember{
+           font-size: 25px;
+           margin: 10px;
+        }
+        .member{
+          width: auto;
+          height: 1900px;
+          margin: 20px;
+          border:solid 1px none;
+          overflow: hidden;
+          float:  left;
+          font-size: 15px;
+          letter-spacing: 3px;
+          word-spacing: 3px;
+          line-height: 1.75;
+        }
+        .memberbox1{
+          margin-bottom: 20px;
+          width: 1000px;
+          height: 330px;
+          padding: 10px;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberbox1 img{
+          display: block;
+          width: 240px;
+          height: 320px;
+          z-index: 2;
+        }
+        .memberbox1 p{
+          height: 0px;/*會擋到圖片偵測翻牌*/
+          margin: 10px;
+          position: relative;
+          top:50px ;
+          left: 150px;
+          z-index: 0;
+        }
+        .memberig1{
+          position: relative;
+          top: -370px;
+          float: right;
+          margin-bottom: 20px;
+          width: 400px;
+          height: 330px;
+          padding: 10px;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberig1 img{
+          width: 280px;
+          height: 320px;
+        }
+        .memberbox2{
+          float: left;
+          margin-bottom: 20px;
+          width: 1000px;
+          height: 330px;
+          padding: 10px;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberbox2 img{
+          display: block;
+          width: 240px;
+          height: 320px;
+          z-index: 2;
+        }
+        .memberbox2 p{
+          height: 0px;/*會擋到圖片偵測翻牌*/
+          position: relative;
+          top:50px ;
+          left: 150px;
+          z-index: 1;
+        }
+        .memberig2{
+          position: relative;
+          top: -370px;
+          float: right;
+          margin-bottom: 20px;
+          width: 400px;
+          height: 330px;
+          padding: 10px;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberig2 img{
+          width: 280px;
+          height: 320px;
+        }
+        .memberbox3{
+          float: left;
+          margin-bottom: 20px;
+          width: 1000px;
+          height: 330px;
+          padding:10px ;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberbox3 img{
+          display: block;
+          width: 240px;
+          height: 320px;
+        }
+        .memberbox3 p{
+          height: 0px;/*會擋到圖片偵測翻牌*/
+          position: relative;
+          top:50px ;
+          left: 150px;
+        }
+        .memberig3{
+          position: relative;
+          top: -370px;
+          float: right;
+          margin-bottom: 20px;
+          width: 400px;
+          height: 330px;
+          padding: 10px;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberig3 img{
+          width: 280px;
+          height: 320px;
+        }
+        .memberbox4{
+          float: left;
+          margin-bottom: 20px;
+          width: 1000px;
+          height: 330px;
+          padding: 10px;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberbox4 img{
+          display: block;
+          width: 240px;
+          height: 320px;
+        }
+        .memberbox4 p{
+          height: 0px;/*會擋到圖片偵測翻牌*/
+          position: relative;
+          top:50px ;
+          left: 150px;
+        }
+        .memberig4{
+          position: relative;
+          top: -370px;
+          float: right;
+          margin-bottom: 20px;
+          width: 400px;
+          height: 330px;
+          padding: 10px;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberig4 img{
+          width: 280px;
+          height: 320px;
+        }
+        .memberbox5{
+          float: left;
+          margin-bottom: 20px;
+          width: 1000px;
+          height:330px;
+          padding: 10px;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberbox5 img{
+          display: block;
+          width: 240px;
+          height: 320px;
+        }
+        .memberbox5 p{
+          height: 0px;/*會擋到圖片偵測翻牌*/
+          position: relative;
+          top:50px ;
+          left: 150px;
+        }
+        .memberig5{
+          position: relative;
+          top: -370px;
+          float: right;
+          margin-bottom: 20px;
+          width: 400px;
+          height: 330px;
+          padding: 10px;
+          background-color: #afbfac;
+          font-size: 20px;
+        }
+        .memberig5 img{
+          width: 280px;
+          height: 320px;
+        }
+        .box{ /*景點選單*/
+          width: 1500px;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #afbfac;
+        }
+        .leftimg{
+          float: left;
+          width: 340px;
+          padding: 20px;
+        }
+        .leftimg img{
+          display: block;
+          width: 100%;
+        }
+        /*.leftimg:hover{
+          background-color:#a1b3a5;
+        }*/
+        .midimg{
+          float: left;
+          width: 600px;
+          padding: 20px;
+        }
+        .midimg img{
+          padding-left: 48px;
+          display: block;
+          width: 100%;
+        }
+        .rightimg{
+          float: right;
+          width: 340px;
+          padding: 20px;
+        }
+        .rightimg img{
+          display: block;
+          width: 100%;
+        }
+        .bottom{
+          width: 1500px;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+        }
+        .copyright{
+          float: left;
+          padding: 20px;
+        }
+        .tbocc{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 300px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .tbocc img{
+          display: block;
+          width: 100%;
+        }
+        .office{
+          display: flex;
+          justify-content: center; 
+          align-items: center;
+          float: left;
+          width: 200px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .office img{
+          display: block;
+          width: 100%;
+        }
+        .qr-code{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 120px;
+          height: 120px;
+          margin: 0 auto;
+          margin-left: 30px;
+          margin-top: 10px;
+        }
+        .qr-code img{
+          display: block;
+          width: 100%;
+        }
+        .up_arrow{
+          float: right;
+          width: 32px;
+          padding: 20px;
+        }
+        .up_arrow img{
+          display: default;
+          width: 100%;
+        }
+        .up_arrow a:hover{
+          opacity:0.7;
+          /*background: url("up_arrow_bg.png");*/
+    		}
+        #roll1{
+          width: 265px;
+          height: 200px;
+        }
+        #roll2{
+          width: 160px;
+          height: 200px;
+        }
+        #roll3{
+          width: 265px;
+          height: 200px;
+        }
+        #roll4{
+          width: 265px;
+          height: 200px;
+        }#roll5{
+          width: 265px;
+          height: 200px;
+        }
+        #div1{
+          height: 200px;
+          margin: 0px auto;
+          position: relative;
+          top: -175px;
+          left: 400px;
+          overflow: hidden;
+          margin: 0;
+          padding: 0;
+        }
+        #div1 ul{
+          position:relative;
+        }
+        #li1{
+          float: left;
+          width: 265px;
+          list-style: none;
+          margin: 0px;
+          padding: 0px;
+        }
+        #li2{
+          float: left;
+          width: 160px;
+          list-style: none;
+          margin: 0px;
+          padding: 0px;
+        }
+        #li3{
+          float: left;
+          width: 265px;
+          list-style: none;
+          margin: 0px;
+          padding: 0px;
+        }
+        #li4{
+          float: left;
+          width: 265px;
+          list-style: none;
+          margin: 0px;
+          padding: 0px;
+        }
+        #li5{
+          float: left;
+          width: 265px;
+          list-style: none;
+          margin: 0px;
+          padding: 0px;
+        }
+
+        /*#div1 ul li {
+          float: left;
+          width: 200px;
+          list-style: none;
+          margin-left: 10px;
+          margin: 0px;
+          padding: 0;
+        }*/
+        .flip-picture {
+            float: left;  margin: 6px;
+            width: 240px; height: 320px;
+        }
+
+        .flip-picture-inner {
+            position: relative;
+            width: 100%; height: 100%;
+            text-align: center;
+            transform-style: preserve-3d;
+        }
+
+        .flip-picture.interactive .flip-picture-inner {
+            transition: transform 0.6s;
+        }
+        .flip-picture.hover:hover .flip-picture-inner{
+            transform: rotateY(180deg);
+        }
+
+
+        @keyframes flipPicture {
+            20% { transform: rotateY(0deg); }
+            25% { transform: rotateY(180deg); }
+            75% { transform: rotateY(180deg); }
+            80% { transform: rotateY(0deg); }
+        }
+
+        .flip-picture-front,
+        .flip-picture-back {
+            position: absolute;
+            width: 100%; height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-picture-front {}
+
+        .flip-picture-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+    <div class="main"><!---防止縮放後跑掉--->
+      <div class="topp">
+        <div class="toplogo">
+            <a href="project.html"><img src="./img/toplogo.png" id="toplogo" alt="回到首頁"/></a>
+        </div>
+        <a href="project.html" title="鹿上有草" aria-pressed="false"><img src="./img/title.jpg" id="title"  alt="鹿上有草"/></a>
+        <div id="div1">
+        <ul>
+          <li id="li1"><img src="img/roll1.jpg" id="roll1"></li>
+          <li id="li2"><img src="img/roll2.jpg" id="roll2"></li>
+          <li id="li3"><img src="img/roll3.jpg" id="roll3"></li>
+          <li id="li4"><img src="img/roll4.jpg" id="roll4"></li>
+          <li id="li5"><img src="img/roll5.jpg" id="roll5"></li>
+        </ul>
+        </div>
+      </div>  
+      <div class="menu" align="left">
+        <a href="project.html" title="首頁" aria-pressed="false"><img src="./img/homepage.png" id="homepage" alt="首頁"/></a>
+        <a href="about.html" title="關於鹿草" aria-pressed="false"><img src="./img/about.png" id="about" alt="關於鹿草"/></a>
+        <a href="attract.html" title="景點介紹" aria-pressed="false"><img src="./img/attract.png" id="attract" alt="景點介紹"/></a>
+        <a href="store.html" title="線上商店" aria-pressed="false"><img src="./img/store.png" id="store" alt="線上商店"/></a>
+        <a href="food.html" title="美食推薦" aria-pressed="false"><img src="./img/food.png" id="food" alt="美食推薦"/></a>
+        <a href="ourteam.html" title="關於我們" aria-pressed="false"><img src="./img/team.png" id="team" alt="關於我們"/></a>
+      </div>
+      <div class="member" align="left">
+        <b><p style="color:#423d2d; font-size: 40px; left: 20px;" id="teammember">&ensp;▌ 小組成員</p></b>
+        <div class="memberbox1" >
+          <div class="flip-picture hover interactive">
+              <div class="flip-picture-inner">
+                  <div class="flip-picture-front poker-b"><img src="./img/s1094522.jpg" alt="s1094522"></div>
+                  <div class="flip-picture-back poker-q"><img src="./img/22back.jpg" alt="22back"></div>
+              </div>
+          </div>
+          <p style="color:#000000"><b>吳冠毅&emsp;同學</b><br><br>電話：0976222532<br>電子信箱：<a href="mailto:lspss97137@gmail.com" style="color:#000000">lspss97137@gmail.com</a><br></p>
+          <p style="color:#696969; font-size: 12px;"><br><br><br><br><br><br><br><br><br>(滑鼠移到圖片上會有驚喜喔)</p>
+        </div>
+        <div class="memberig1"><a href="https://www.instagram.com/wu_boss429/"><img src="img/22ig.png" style="display: block; margin: auto;"></a></div>
+        <div class="memberbox2">
+          <div class="flip-picture hover interactive">
+              <div class="flip-picture-inner">
+                  <div class="flip-picture-front poker-b"><img src="./img/s1094525.jpg" alt="s1094525"></div>
+                  <div class="flip-picture-back poker-q"><img src="./img/25back.jpg" alt="25back"></div>
+              </div>
+          </div>
+          <p style="color:#000000"><b>林銘鉦&emsp;同學</b><br><br>電話：0905910419<br>電子信箱：<a href="mailto:c45796555@gmail.com" style="color:#000000">c45796555@gmail.com</a><br></p>
+          <p style="color:#696969; font-size: 12px;"><br><br><br><br><br><br><br><br><br>(滑鼠移到圖片上會有驚喜喔)</p>
+        </div>
+        <div class="memberig2"><a href="https://www.instagram.com/mjheng_0531/"><img src="img/25ig.png" style="display: block; margin: auto;"></a></div>
+        <div class="memberbox3">
+          <div class="flip-picture hover interactive">
+              <div class="flip-picture-inner">
+                  <div class="flip-picture-front poker-b"><img src="./img/s1094546.jpg" alt="s1094546"></div>
+                  <div class="flip-picture-back poker-q"><img src="./img/46back.jpg" alt="46back"></div>
+              </div>
+          </div>
+          <p style="color:#000000"><b>黃珮晴&emsp;同學</b><br><br>電話：0986893286<br>電子信箱：<a href="mailto:paulazaq35789@gmail.com" style="color:#000000">paulazaq35789@gmail.com</a><br></p>
+          <p style="color:#696969; font-size: 12px;"><br><br><br><br><br><br><br><br><br>(滑鼠移到圖片上會有驚喜喔)</p>
+        </div>
+        <div class="memberig3"><a href="https://www.instagram.com/paula_0704/"><img src="img/46ig.png" style="display: block; margin: auto;"></a></div>
+        <div class="memberbox4">
+          <div class="flip-picture hover interactive">
+              <div class="flip-picture-inner">
+                  <div class="flip-picture-front poker-b"><img src="./img/s1094560.jpg" alt="s1094560"></div>
+                  <div class="flip-picture-back poker-q"><img src="./img/60back.jpg" alt="60back"></div>
+              </div>
+          </div>
+          <p style="color:#000000"><b>葉俊宏&emsp;同學</b><br><br>電話：0938998966<br>電子信箱：<a href="mailto:a6100961009@gmail.com" style="color:#000000">a6100961009@gmail.com</a><br></p>
+          <p style="color:#696969; font-size: 12px;"><br><br><br><br><br><br><br><br><br>(滑鼠移到圖片上會有驚喜喔)</p>
+        </div>
+        <div class="memberig4"><a href="https://www.instagram.com/yehff_/"><img src="img/60ig.png" style="display: block; margin: auto;"></a></div>
+        <div class="memberbox5">
+          <div class="flip-picture hover interactive">
+              <div class="flip-picture-inner">
+                  <div class="flip-picture-front poker-b"><img src="img/s1094563.jpg" alt="s1094563"></div>
+                  <div class="flip-picture-back poker-q"><img src="img/63back.jpg" alt="63back"></div>
+              </div>
+          </div>
+          <p style="color:#000000"><b>林紘宇&emsp;同學</b><br><br>電話：0908360621<br>電子信箱：<a href="mailto:bernie910621@gmail.com" style="color:#000000">bernie910621@gmail.com</a><br></p>
+          <p style="color:#696969; font-size: 12px;"><br><br><br><br><br><br><br><br><br>(滑鼠移到圖片上會有驚喜喔)</p>
+        </div>
+        <div class="memberig5"><a href="https://www.instagram.com/redfish_isme/"><img src="img/63ig.png" style="display: block; margin: auto;"></a></div>
+      </div>
+  		<div class="box">
+  			<div class="leftimg"> <!--主框左圖 畫牆前合照*/-->
+        		<img src="./img/paint.jpg" alt="畫牆前合照"/>
+        </div>
+        <!--<div class="field">
+        		<figure><img src="walk.gif" alt="field ridge"/></figure>
+      	</div>-->
+      	<div class="midimg"> <!--主框中圖 五人田野圖-->
+      			<img src="./img/field.jpg" alt="五人田野圖"/>
+     		</div>
+     		<div class="rightimg"> <!--主框右圖 監獄前合照-->
+       			<img src="./img/jail.jpg" alt="監獄前合照"/>
+        </div>
+      </div>
+  		<div class="bottom">
+  			<div class="copyright">
+  	      <p style="color:#423d2d">© 嘉大資管 鹿上有草</p>
+  	      <p style="color:#423d2d">Website Design By 鹿上有草</p>
+          <p style="color:#423d2d">更新日期：2023年01月03日</p>
+        </div>
+        <div class="tbocc">
+          <a href="https://tbocc.cyhg.gov.tw/" title="嘉義縣文化觀光局" aria-pressed="false"><img src="./img/tbocc.png" id="tbocc" alt="嘉義縣文化觀光局"/></a>
+        </div>
+        <div class="office">
+            <a href="https://lutsau.cyhg.gov.tw/Default.aspx" title="鹿草鄉公所" aria-pressed="false"><img src="./img/lutsao.png" id="lutsao" alt="鹿草鄉公所"/></a>
+        </div>
+        <div class="qr-code">
+            <a href="https://www.youtube.com/watch?v=cKyZvwjsN6E" title="QR Code" aria-pressed="false"><img src="./img/qr-code.png" id="qr-codeo" alt="網頁程式設計期末專題_第四組_鹿上有草 - YouTube"/></a>
+        </div>
+  	    <div class="up_arrow">
+  	        <a href="#" title="up_arrow" aria-pressed="false"><img src="./img/up-arrow.png" id="top" alt="up_arrow" /></a>
+      	</div>
+  	  </div>
+    </div>
+    <script>
+      window.onload=function(){
+        var i,a=0;//a是用來累計的，避免ul的width一直變化
+        var oDiv  =  document.getElementById('div1');
+        var oUl = document.getElementsByTagName('ul')[0];
+        var Li = oUl.getElementsByTagName('li');//獲取ul下的所有li
+        oUl.innerHTML = oUl.innerHTML+oUl.innerHTML;//li下的內容進行想加
+        for(i = 0 ; i < Li.length ; i++ ){//用for計算出ul的width
+            a += Li[i].offsetWidth;
+        }
+        oUl.style.width = a + 'px';
+        var speed = 2;
+        
+        //主方法
+        function move(){
+          //如果左邊橫向滾動了長度一半之後,回到初始位置
+          
+          if(oUl.offsetLeft<-oUl.offsetWidth/speed){
+            oUl.style.left = '0'
+          }
+          //如果右邊橫向滾動的距離大於0 就讓他的位置回到一半
+          if(oUl.offsetLeft>0){
+            oUl.style.left = -oUl.offsetWidth/speed+'px';
+          }
+          //oUl.style.left = oUl.offsetLeft-2+'px';//進行左橫向滾動
+          oUl.style.left = oUl.offsetLeft+speed+'px';//進行右橫向滾動
+        }
+        var timer = setInterval(move,30)//呼叫方法
+        /*//滑鼠指向的時候 暫停
+        oDiv.onmouseover=function(){
+          clearInterval(timer);
+        } 
+        //滑鼠離開之後 繼續滾動
+        oDiv.onmouseout=function(){
+           timer = setInterval(move,30)
+        }*/
+      }
+    </script>
+	</body>
+</html>

@@ -1,0 +1,701 @@
+<!--111-1 網頁程式設計專題 鄉鎮：鹿草鄉 名稱：鹿上有草 首頁-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="author" content="Grass on the Deer">
+		<meta name=“keywords” content=“webprogramming”>
+		<meta name="viewport" content="width=device-width; initialscale=1.0; maximum-scale=1.0; user-scalable=0;">
+		<title>鹿上有草 | 首頁</title>
+    <link rel="icon" href="./img/lucao.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800,300" rel="stylesheet" type="text/css">
+	</head>
+	<body bgcolor=#e2f0d9>
+		<style type="text/css">
+        .main{
+          width: 1500px;
+          margin: auto;
+        }
+        .topp{ /*頂部標題*/
+          float: middle;
+          text-align: middle5;
+          width: 100%;
+          height: 200px;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .toplogo{ /*頂部LOGO*/
+          float: left;
+          width: 246px;
+          padding: 20px;
+        }
+        .toplogo img{
+          display: block;
+          width:55%;
+        }
+        #title{
+          margin-top: 20px;
+          margin-left: -40px;
+        }
+        /*--------------輪播圖大小，非框架!-----------------*/
+        #roll1{
+          width: 540px;
+          height: 405px;
+          margin: 0px;
+        }
+        #roll2{
+          width: 300px;
+          height: 405px;
+          margin: 0px;
+        }
+        #roll3{
+          width: 540px;
+          height: 405px;
+          margin: 0px;
+        }
+        #roll4{
+          width: 540px;
+          height: 405px;
+        }
+        #roll5{
+          width: 300px;
+          height: 405px;
+        }
+        #roll6{
+          width: 540px;
+          height: 405px;
+        }
+        #attraction_box{
+          width: 100%;
+          height: 445px;
+          margin: 0px auto;
+          position: relative;
+          overflow: hidden;
+        }
+        #attraction_box ul{
+          position:relative;
+        }
+        #food_box{
+          width: 100%;
+          height: 445px;
+          margin: 0px auto;
+          position: relative;
+          overflow: hidden;
+        }
+        #food_box ul{
+          position:absolute;
+        }
+        /*#attraction_box ul li {
+          float: left;
+          width: 540px;
+          list-style: none;
+          margin: 0px;
+          padding: 0;
+          padding-left: 20px;
+        }*/
+        /*-------------------輪播圖框架大小設定!!--------------------*/
+        #li1{
+          float: left;
+          width: 580px;
+          list-style: none;
+        }
+        #li2{
+          float: left;
+          width: 340px;
+          list-style: none;
+        }
+        #li3{
+          float: left;
+          width: 580px;
+          list-style: none;
+        }
+        #li4{
+          float: left;
+          width: 580px;
+          list-style: none;
+        }
+        #li5{
+          float: left;
+          width: 340px;
+          list-style: none;
+        }
+        #li6{
+          float: left;
+          width: 580px;
+          list-style: none;
+        }
+        /*---------------------------------------*/
+        .menu{ /*功能選單*/
+          position: sticky;
+          float: left;
+          text-align: right;
+          width: 100%;
+          height: 40px;
+          margin: 10px auto;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .menu a:hover {
+          opacity:0.7;
+        }
+        .attraction_box{ /*景點選單*/
+          width: 100%;
+          margin:auto;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #afbfac;
+        }
+        .mask {
+            position:absolute;
+            text-align:center;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: auto;
+            background-color: #669d7b;
+        }
+        .food_box{ /*景點選單*/
+          width: 100%;
+          margin:auto;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #afbfac;
+        }
+
+    /*---------------------------------------------*/
+    /*主框左圖*/
+    .leftimg{
+        float: left;
+        top: 2%;
+        left: 0%;
+        width: 540px;/*變更圖片大小改這*/
+        height: 405px;
+        padding: 20px;
+        overflow:hidden;
+        flex: 1 1 0px;
+        transition: transform .5s;
+        position:relative;
+        overflow:hidden;
+        z-index: auto;
+        display:block;
+        cursor:pointer;
+    }
+
+    figure.leftimg figcaption {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transition: background-color 0.35s;
+    }
+
+    figure.leftimg:hover figcaption {
+        background-color: rgba(58, 52, 42, 0);
+    }
+
+    figure.leftimg .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding: 3rem;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    figure.leftimg figcaption::before {
+        content: '';
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        right: 30px;
+        bottom: 30px;
+        border: 1px solid #fff;
+        transform: scale(0);
+        transition: transform 0.35s;  
+    }
+
+    figure.leftimg:hover figcaption::before {
+        transform: scale(1);
+    }
+
+    figure.leftimg .content p {
+        opacity: 0;
+        transform: scale(0);
+        transition: opacity .35s, transform .3s;
+    }
+
+    figure.leftimg:hover .content p {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .leftimg img{
+        position: default;
+        width: 100%;
+        height: 100%;
+        transition: transform .2s;    
+    }
+    .leftimg a:hover{
+        transform: scale(1.5, 1.5);
+    }
+    .leftimg:hover img{
+        transform:scale(1.2,1.2);
+        -webkit-filter:brightness(.5);
+    }
+        
+     /*----------------------主框中圖----------------------*/
+    .midimg{
+        float: left;
+        top: 2%;
+        width: 300px;/*變更圖片大小改這*/
+        height: 405px;
+        padding: 20px;
+        overflow:hidden;
+        flex: 1 1 0px;
+        transition: transform .5s;
+        position:relative;
+        overflow:hidden;
+        z-index: auto;
+        display:block;
+        cursor:pointer;
+    }
+    figure.midimg figcaption {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transition: background-color 0.35s;
+    }
+    figure.midimg:hover figcaption {
+        background-color: rgba(58, 52, 42, 0);
+    }
+
+    figure.midimg .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding: 3rem;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    figure.midimg figcaption::before {
+        content: '';
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        right: 30px;
+        bottom: 30px;
+        border: 1px solid #fff;
+        transform: scale(0);
+        transition: transform 0.35s;  
+    }
+
+    figure.midimg:hover figcaption::before {
+        transform: scale(1);
+    }
+
+    figure.midimg .content p {
+        opacity: 0;
+        transform: scale(0);
+        transition: opacity .35s, transform .3s;
+    }
+
+    figure.midimg:hover .content p {
+        opacity: 1;
+        transform: scale(1);
+    }
+    .midimg img{
+        position: default;
+        width: 100%;
+        height: 100%;
+        transition: transform .2s;
+    }
+    .midimg a:hover{
+        transform: scale(1.5, 1.5);
+    }
+    .midimg:hover img{
+        transform:scale(1.2,1.2);
+        -webkit-filter:brightness(.5);
+    }
+       
+    /*-------------------主框右圖--------------------*/
+    .rightimg{
+        float: left;
+        top: 2%;
+        left: 0%;
+        width: 540px;/*變更圖片大小改這*/
+        height: 405px;
+        padding: 20px;
+        overflow:hidden;
+        flex: 1 1 0px;
+        transition: transform .5s;
+        position:relative;
+        overflow:hidden;
+        z-index: auto;
+        display:block;
+        cursor:pointer;
+    }
+    figure.rightimg figcaption {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transition: background-color 0.35s;
+    }
+    figure.rightimg:hover figcaption {
+        background-color: rgba(58, 52, 42, 0);
+    }
+
+    figure.rightimg .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding: 3rem;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    figure.rightimg figcaption::before {
+        content: '';
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        right: 30px;
+        bottom: 30px;
+        border: 1px solid #fff;
+        transform: scale(0);
+        transition: transform 0.35s;  
+    }
+
+    figure.rightimg:hover figcaption::before {
+        transform: scale(1);
+    }
+
+    figure.rightimg .content p {
+        opacity: 0;
+        transform: scale(0);
+        transition: opacity .35s, transform .3s;
+    }
+
+    figure.rightimg:hover .content p {
+        opacity: 1;
+        transform: scale(1);
+    }
+        .rightimg img{
+          position: default;
+          width: 100%;
+          height: 100%;
+          transition: transform .2s;
+        }
+        .rightimg a:hover{
+          transform: scale(1.5, 1.5);
+        }
+        .rightimg:hover img{
+            transform:scale(1.2,1.2);
+            -webkit-filter:brightness(.5);
+        }
+        #attraction_p{      /*---文字"景點介紹"---*/
+            margin:     10px;
+            margin-left:  50px;
+            margin-top:   70px;
+        }
+        #food_p{            /*---文字"美食推薦"---*/
+            margin:     10px;
+            margin-left:  50px;
+            margin-top:     20px;
+        }
+        .main hr{
+            margin:     0px;
+        }
+/*-------------------------------------------------*/
+        .bottom{
+          width: 100%;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+        }
+        .copyright{
+          float: left;
+          padding: 20px;
+          
+        }
+        .tbocc{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 300px;
+          margin: 0 auto;
+        }
+        .tbocc img{
+          display: block;
+          width: 100%;
+        }
+        .office{
+          display: flex;
+          justify-content: center; 
+          align-items: center;
+          float: left;
+          width: 200px;
+          margin: 0 auto;
+        }
+        .office img{
+          display: block;
+          width: 100%;
+        }
+        .qr-code{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 120px;
+          height: 120px;
+          margin: 0 auto;
+          margin-left: 30px;
+          margin-top: 10px;
+        }
+        .qr-code img{
+          display: block;
+          width: 100%;
+        }
+        .up_arrow{
+          position: sticky;
+          float: right;
+          width: 32px;
+          padding: 20px;
+        }
+        .up_arrow img{
+          display: default;
+          width: 100%;
+        }
+        .up_arrow a:hover{
+          opacity: 0.7;
+    	}
+    	</style>
+    <div class="main">
+        <div class="topp">
+            <div class="toplogo">
+                <a href="project.html"><img src="./img/toplogo.png" id="toplogo" alt="回到首頁"/></a>
+            </div>
+            <a href="project.html" title="鹿上有草" aria-pressed="false"><img src="./img/title.jpg" id="title" alt="鹿上有草"/></a>
+        </div>
+        <div class="menu" align="left">
+            <a href="project.html" title="首頁" aria-pressed="false"><img src="./img/homepage.png" id="homepage" alt="首頁"/></a>
+            <a href="about.html" title="關於鹿草" aria-pressed="false"><img src="./img/about.png" id="about" alt="關於鹿草"/></a>
+            <a href="attract.html" title="景點導覽" aria-pressed="false"><img src="./img/attract.png" id="attract" alt="景點導覽"/></a>
+            <a href="store.html" title="線上商店" aria-pressed="false"><img src="./img/store.png" id="store" alt="線上商店"/></a>
+            <a href="food.html" title="美食推薦" aria-pressed="false"><img src="./img/food.png" id="food" alt="美食推薦"/></a>
+            <a href="ourteam.html" title="關於我們" aria-pressed="false"><img src="./img/team.png" id="team" alt="關於我們"/></a>
+        </div>
+        <p id="attraction_p" style="color:#423d2d; font-weight:bold; font-size: 40px" align="left"><b>▌ 景點介紹</b></p>
+        <hr color="#a9d18e">
+  		<div class="attraction_box" id="attraction_box">
+        <ul>
+            <li id="li1">
+            <figure class="leftimg">
+                <a href="bitan.html"><img src="./img/rice.jpg" id=roll1 alt="碧潭村"/></a>
+                <div style= "position:absolute; left:200; top:30; color: #423d2d; font-size: 32px; font-weight: bold;"></div> 
+                <figcaption>
+                    <a href="bitan.html">
+                        <div class="content">
+                            <p style="color:#ffffff;font-weight: 500;text-transform: uppercase;margin:0;margin-top: 150px;font-size: 45px;">碧潭村</p>
+                            <!--<p style="color: rgb(52, 63, 75);font-weight: 500;text-transform: uppercase;margin:0;margin-top: 150px;font-size: 45px;">碧潭村</p>-->
+                        </div>
+                    </a>      
+                </figcaption>
+            </figure>
+            </li>
+            <li id="li2">
+            <figure class="midimg">
+      		    <a href="co2tour.html"><img src="./img/art.jpg" id="roll2" alt="冷研碳索館"/></a>
+                <div style= "position:absolute; left:100; top:30; color: #423d2d; font-size: 32px; font-weight: bold;"></div> 
+                <figcaption>
+                    <a href="co2tour.html">
+                        <div class="content">
+                            <p style="color:#ffffff;font-weight: 500;text-transform: uppercase;margin:0;margin-top: 150px;font-size: 45px;">冷研碳索館</p>
+                            <!--<p style="color: rgb(52, 63, 75);font-weight: 500;text-transform: uppercase;margin:0;margin-top: 150px;font-size: 45px;">冷研碳索館</p>-->
+                        </div>
+                    </a>
+                </figcaption>
+            </figure>
+            </li>
+            <li id="li3">
+            <figure class="rightimg">
+       	        <a href="kaitai.html"><img src="./img/temple_1.jpg" id="roll3" alt="開臺聖王府"/></a>
+                <div style= "position:absolute; left:200; top:30; color: #423d2d; font-size: 32px; font-weight: bold;"></div> 
+                <figcaption>
+                    <a href="kaitai.html">
+                        <div class="content">
+                            <p style="color:#ffffff;font-weight: 500;text-transform: uppercase;margin:0;margin-top: 150px;font-size: 45px;">開臺聖王府</p>
+                            <!--<p style="color: rgb(52, 63, 75);font-weight: 500;text-transform: uppercase;margin:0;margin-top: 150px;font-size: 45px;">開臺聖王府</p>-->
+                        </div>
+                    </a>
+                </figcaption>
+            </figure>
+            </li>
+        </ul>
+        </div>
+        <hr color="#a9d18e">
+
+        <!----------------------我是景點與美食的分隔線----------------------->
+
+        <p id="food_p" style="color:#423d2d; font-weight:bold; font-size: 40px" align="left"><b>▌ 美食推薦</b></p>
+        <hr color="#a9d18e">
+        <div class="food_box" id="food_box">
+        <ul>
+            <li id="li4">
+            <figure class="leftimg">
+                <a href="rihe.html"><img src="./img/shavedice.jpg" id="roll4" alt="日和製冰部"/></a>
+                <div style= "position:absolute; left:200; top:30; color: #423d2d; font-size: 32px; font-weight: bold;"></div> 
+                <figcaption>
+                    <a href="rihe.html">
+                        <div class="content">
+                            <p style="color:#ffffff;font-weight: 500;text-transform: uppercase;margin:0;margin-top: 150px;font-size: 45px;">日和製冰部</p>
+                        </div>
+                    </a>      
+                </figcaption>
+            </figure>
+            </li>
+
+            <li id="li5">
+            <figure class="midimg">
+                <a href="lukoufood.html"><img src="./img/riceeat.jpg" id="roll5" alt="鹿口飯食"/></a>
+                <div style= "position:absolute; left:100; top:30; color: #423d2d; font-size: 32px; font-weight: bold;"></div> 
+                <figcaption>
+                    <a href="lukoufood.html">
+                        <div class="content">
+                            <p style="color:#ffffff;font-weight: 500;text-transform: uppercase;margin:0;margin-top: 150px;font-size: 45px;">鹿口飯食</p>
+                        </div>
+                    </a>
+                </figcaption>
+            </figure>
+            </li>
+
+            <li id="li6">
+            <figure class="rightimg">
+                <a href="aqi.html"><img src="./img/sheep.jpg" id="roll6" alt="阿期羊肉爐"/></a>
+                <div style= "position:absolute; left:200; top:30; color: #423d2d; font-size: 32px; font-weight: bold;"></div> 
+                <figcaption>
+                    <a href="aqi.html">
+                        <div class="content">
+                            <p style="color:#ffffff;font-weight: 500;text-transform: uppercase;margin:0;margin-top: 150px;font-size: 45px;">阿期羊肉爐</p>
+                        </div>
+                    </a>
+                </figcaption>
+            </figure>
+            </li>
+        </ul>
+        </div>
+  		<hr color="#a9d18e">
+  		<div class="bottom">
+  			<div class="copyright">
+      	        <p style="color:#423d2d">© 嘉大資管 鹿上有草</p>
+      	        <p style="color:#423d2d">Website Design By 鹿上有草</p>
+                <p style="color:#423d2d">更新日期：2023年01月03日</p>
+            </div>
+            <div class="tbocc">
+                <a href="https://tbocc.cyhg.gov.tw/" title="嘉義縣文化觀光局" aria-pressed="false"><img src="./img/tbocc.png" id="tbocc" alt="嘉義縣文化觀光局"/></a>
+            </div>
+            <div class="office">
+                <a href="https://lutsau.cyhg.gov.tw/Default.aspx" title="鹿草鄉公所" aria-pressed="false"><img src="./img/lutsao.png" id="lutsao" alt="鹿草鄉公所"/></a>
+            </div>
+            <div class="qr-code">
+                <a href="https://www.youtube.com/watch?v=cKyZvwjsN6E" title="QR Code" aria-pressed="false"><img src="./img/qr-code.png" id="qr-codeo" alt="網頁程式設計期末專題_第四組_鹿上有草 - YouTube"/></a>
+            </div>
+            <div class="up_arrow">
+                <a href="#" title="up_arrow" aria-pressed="false"><img src="./img/up-arrow.png" id="top" alt="up_arrow" /></a>
+            </div>
+        </div>
+    </div>
+    <script>
+      window.onload=function(){
+        var i,j,a=0,b=0;
+        var oDiv  =  document.getElementById('attraction_box');
+        var oUl = document.getElementsByTagName('ul')[0];
+        var Li = oUl.getElementsByTagName('li');//獲取ul下的所有li
+        oUl.innerHTML = oUl.innerHTML+oUl.innerHTML;//li下的內容進行想加
+        for(i = 0 ; i < Li.length ; i++ ){
+            a += Li[i].offsetWidth;
+        }
+        oUl.style.width = a + 'px';
+        /*oUl.style.width = Li[0].offsetWidth*Li.length+'px';//ul的寬度等於每個li的寬度乘以所有li的長度*/
+        var speed = 2;
+        
+        //主方法
+        function move(){
+          //如果左邊橫向滾動了長度一半之後,回到初始位置
+          
+          if(oUl.offsetLeft<-oUl.offsetWidth/speed){
+            oUl.style.left = '0'
+          }
+          //如果右邊橫向滾動的距離大於0 就讓他的位置回到一半
+          if(oUl.offsetLeft>0){
+            oUl.style.left = -oUl.offsetWidth/speed+'px';
+          }
+          oUl.style.left = oUl.offsetLeft-2+'px';//進行左橫向滾動
+          //oUl.style.left = oUl.offsetLeft+speed+'px';//進行右橫向滾動
+        }
+        //呼叫方法
+        var timer_up = setInterval(move,30)
+        //滑鼠指向的時候 暫停
+        oDiv.onmouseover=function(){
+          clearInterval(timer_up);
+        } 
+        //滑鼠離開之後 繼續滾動
+        oDiv.onmouseout=function(){
+           timer_up = setInterval(move,30)
+        }
+      
+        /*------------------------------------------------------------*/
+
+        var uDiv  =  document.getElementById('food_box');
+        var uUl = document.getElementsByTagName('ul')[1];
+        var uLi = uUl.getElementsByTagName('li');//獲取ul下的所有li
+        uUl.innerHTML = uUl.innerHTML+uUl.innerHTML;//li下的內容進行想加
+        for(j = 0 ; j < uLi.length ; j++ ){
+            b += uLi[j].offsetWidth;
+        }
+        uUl.style.width = b + 'px';
+        var speed = 2
+        
+        //主方法
+        function move2(){
+          //如果左邊橫向滾動了長度一半之後,回到初始位置
+          
+          if(uUl.offsetLeft<-uUl.offsetWidth/speed){
+            uUl.style.left = '0'
+          }
+          //如果右邊橫向滾動的距離大於0 就讓他的位置回到一半
+          if(uUl.offsetLeft>0){
+            uUl.style.left = -uUl.offsetWidth/speed+'px';
+          }
+          uUl.style.left = uUl.offsetLeft-2+'px';//進行左橫向滾動
+          //oUl.style.left = oUl.offsetLeft+speed+'px';//進行右橫向滾動
+        }
+        //呼叫方法
+        var timer_down = setInterval(move2,30)
+        //滑鼠指向的時候 暫停
+        uDiv.onmouseover=function(){
+          clearInterval(timer_down);
+        } 
+        //滑鼠離開之後 繼續滾動
+        uDiv.onmouseout=function(){
+           timer_down = setInterval(move2,30)
+        }
+      }
+    </script>
+	</body>
+</html>

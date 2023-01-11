@@ -1,0 +1,327 @@
+<!--111-1 網頁程式設計專題 鄉鎮：鹿草鄉 名稱：鹿上有草 線上商店-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="author" content="Grass on the Deer">
+		<meta name=“keywords” content=“webprogramming”>
+		<meta name="viewport" content="width=device-width; initialscale=1.0; maximum-scale=1.0; user-scalable=0;">
+		<title>鹿上有草 | 線上商店</title>
+    <link rel="icon" href="./img/lucao.ico" type="image/x-icon"/>
+	</head>
+	<body bgcolor=#e2f0d9>  
+		<style type="text/css">
+        .main{
+          width: 1500px;
+          margin: auto;
+        }
+        .topp{ /*頂部標題*/
+          float: middle;
+          text-align: middle5;
+          width: 100%;
+          height: 200px;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .toplogo{ /*頂部LOGO*/
+          float: left;
+          width: 246px;
+          padding: 20px;
+        }
+        .toplogo img{
+          display: block;
+          width:55%;
+        }
+        #title{
+          margin-top: 20px;
+          margin-left: -40px;
+        }
+        .menu{ /*功能選單*/
+          position: sticky;
+          float: left;
+          text-align: right;
+          width: 100%;
+          height: 40px;
+          margin: 10px auto;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .menu a:hover {
+          opacity:0.7;
+        }
+        .box{ /*景點選單*/
+          width: 100%;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #afbfac;
+        }
+        .main_title{
+          position: relative;
+          left: 20px;
+        }
+        .item_slider{
+          float: left;
+          width: 300px;
+          height: 400px;
+          top: 100px;
+          margin: 25px;
+        }
+        .item{
+          float: left;
+          position: relative;
+          width: 300px;
+          height: 300px;
+          left: 50px;
+          margin: 20px auto;
+          overflow: hidden;
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+          transform:scale(1,1);transition: all 1s ease-out;
+        }
+        .item:hover{
+          transform:scale(1.05,1.05);
+          overflow: hidden;
+        }
+        .label{
+          position: relative;
+          color: #423d2d;
+          font-family: sans-serif;
+          font-weight: 600;
+          font-size: 20px;
+          width: 60px;
+          height: 40px;
+          left: 130px;
+          top: 10px;
+        }
+        .textbox{
+          position: relative;
+          left: 130px;
+          bottom: 70px;
+        }
+        .button{
+          background-color: #e2f0d9;
+          background-image: linear-gradient(-180deg, #90a185, #b0c4a3);
+          border-radius: 5px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+          color: #e2f0d9;
+          cursor: pointer;
+          display: inline-block;
+          font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+          font-weight: bold;
+          font-size: 18px;
+          text-align: center;
+          height: 44px;
+          line-height: 44px;
+          outline: 0;
+          overflow: hidden;
+          padding: 0 20px;
+          pointer-events: auto;
+          position: relative;
+          touch-action: manipulation;
+          user-select: none;
+          -webkit-user-select: none;
+          vertical-align: top;
+          white-space: nowrap;
+          width: 110px;
+          top: 15px;
+          right: 80px;
+          margin-left: 220px;
+          margin-bottom: 30px;
+          z-index: 9;
+          border: 0;
+        }
+        .button:hover{
+          background: #90a185;
+        }
+        .bottom{
+          width: 100%;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+        }
+        .copyright{
+          float: left;
+          padding: 20px;
+        }
+        .tbocc{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 300px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .tbocc img{
+          display: block;
+          width: 100%;
+        }
+        .office{
+          display: flex;
+          justify-content: center; 
+          align-items: center;
+          float: left;
+          width: 200px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .office img{
+          display: block;
+          width: 100%;
+        }
+        .qr-code{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 120px;
+          height: 120px;
+          margin: 0 auto;
+          margin-left: 30px;
+          margin-top: 10px;
+        }
+        .qr-code img{
+          display: block;
+          width: 100%;
+        }
+        .up_arrow{
+          position: sticky;
+          float: right;
+          width: 32px;
+          padding: 20px;
+        }
+        .up_arrow img{
+          display: default;
+          width: 100%;
+        }
+        .up_arrow a:hover{
+          opacity: 0.7;
+        }
+    	</style>
+    <div class="main"><!---防止縮放後版面跑掉--->
+      <div class="topp">
+        <div class="toplogo">
+            <a href="project.html"><img src="./img/toplogo.png" id="toplogo" alt="回到首頁"/></a>
+        </div>
+        <a href="project.html" title="鹿上有草" aria-pressed="false"><img src="./img/title.jpg" id="title" alt="鹿上有草"/></a>
+      </div>
+      <div class="menu" align="left">
+        <a href="project.html" title="首頁" aria-pressed="false"><img src="./img/homepage.png" id="homepage" alt="首頁"/></a>
+        <a href="about.html" title="關於鹿草" aria-pressed="false"><img src="./img/about.png" id="about" alt="關於鹿草"/></a>
+        <a href="attract.html" title="景點介紹" aria-pressed="false"><img src="./img/attract.png" id="attract" alt="景點介紹"/></a>
+        <a href="store.html" title="線上商店" aria-pressed="false"><img src="./img/store.png" id="store" alt="線上商店"/></a>
+        <a href="food.html" title="美食推薦" aria-pressed="false"><img src="./img/food.png" id="food" alt="美食推薦"/></a>
+        <a href="ourteam.html" title="關於我們" aria-pressed="false"><img src="./img/team.png" id="team" alt="關於我們"/></a>
+      </div>
+      <div class="box" >
+        <div class="main_title"style="margin-bottom: 0px;">
+          <p style="color:#423d2d; font-weight:bold"><font size="9"><br>▌ 線上商店</font></p>
+        </div>
+      </div>
+  		<div class="box">
+        <form action="good.php" method="post">
+        <div class="item_slider">
+          <div class="item">
+            <img src="./store/item_1.png" alt="商品1" width="300" height="300">
+          </div>
+          <font style="position: relative; color: #423d2d; font-size: 20px; font-weight: 600; left: 140px; top: -5px;">明信片 | 榕夏</font>
+          <div class="label">50元</div>              
+            <input name="good1" type="number" value="0" min="0" max="999" placeholder="請輸入數量" style="color: #000000; font-size: 16px; font-weight: 600; text-align: center; border: #423d2d; width: 100px; height: 40px; margin-left: 200px; margin-top: -35px">
+        </div>
+        <div class="item_slider">
+          <div class="item">
+            <img src="./store/item_2.png" alt="商品2" width="300" height="300">
+          </div>
+          <font style="position: relative; color: #423d2d; font-size: 20px; font-weight: 600; left: 140px; top: -5px;">明信片 | 芒塘</font>
+          <div class="label">50元</div>
+            <input name="good2" type="number" value="0"min="0" max="999" placeholder="請輸入數量" style="color: #000000; font-size: 16px; font-weight: 600; text-align: center; border: #423d2d; width: 100px; height: 40px; margin-left: 200px; margin-top: -35px">
+        </div>
+        <div class="item_slider">
+          <div class="item">
+            <img src="./store/item_3.png" alt="商品3" width="300" height="300">
+          </div>
+          <font style="position: relative; color: #423d2d; font-size: 20px; font-weight: 600; left: 140px; top: -5px;">明信片 | 鹿口</font>
+          <div class="label">50元</div>
+            <input name="good3" type="number" value="0"min="0" max="999" placeholder="請輸入數量" style="color: #000000; font-size: 16px; font-weight: 600; text-align: center; border: #423d2d; width: 100px; height: 40px; margin-left: 200px; margin-top: -35px">
+        </div>
+        <div class="item_slider">
+          <div class="item">
+            <img src="./store/item_4.png" alt="商品4" width="300" height="300">
+          </div>
+          <font style="position: relative; color: #423d2d; font-size: 20px; font-weight: 600; left: 140px; top: -5px;">明信片 | 飽穗</font>
+          <div class="label">50元</div>
+            <input name="good4" type="number" value="0"min="0" max="999" placeholder="請輸入數量" style="color: #000000; font-size: 16px; font-weight: 600; text-align: center; border: #423d2d; width: 100px; height: 40px; margin-left: 200px; margin-top: -35px">
+        </div>
+      </div>
+      <hr width="100%" size="2" color="#89ab80" noshade>
+      <div class="box">
+        <div class="item_slider">
+          <div class="item">
+            <img src="./store/item_5.png" alt="商品5" width="300" height="300">
+          </div>
+          <font style="position: relative; color: #423d2d; font-size: 20px; font-weight: 600; left: 140px; top: -5px;">明信片 | 涸魚</font>
+          <div class="label">50元</div>
+            <input name="good5" type="number"value="0" min="0" max="999" placeholder="請輸入數量" style="color: #000000; font-size: 16px; font-weight: 600; text-align: center; border: #423d2d; width: 100px; height: 40px; margin-left: 200px; margin-top: -35px">
+        </div>
+        <div class="item_slider">
+          <div class="item">
+            <img src="./store/item_6.png" alt="商品6" width="300" height="300">
+          </div>
+          <font style="position: relative; color: #423d2d; font-size: 20px; font-weight: 600; left: 150px; top: -5px;">明信片 | 雙鹿</font>
+          <div class="label">50元</div>
+            <input name="good6" type="number" value="0"min="0" max="999" placeholder="請輸入數量" style="color: #000000; font-size: 16px; font-weight: 600; text-align: center; border: #423d2d; width: 100px; height: 40px; margin-left: 200px; margin-top: -35px">
+        </div>
+        <div class="item_slider">
+          <div class="item">
+            <img src="./store/item_7.png" alt="商品7" width="300" height="300">
+          </div>
+          <font style="position: relative; color: #423d2d; font-size: 20px; font-weight: 600; left: 150px; top: -5px;">明信片 | 鹿夜</font>
+          <div class="label">50元</div>
+            <input name="good7" type="number" value="0"min="0" max="999" placeholder="請輸入數量" style="color: #000000; font-size: 16px; font-weight: 600; text-align: center; border: #423d2d; width: 100px; height: 40px; margin-left: 200px; margin-top: -35px">
+        </div>
+        <div class="item_slider">
+          <div class="item">
+            <img src="./store/item_8.png" alt="商品8" width="300" height="300">
+          </div>
+          <font style="position: relative; color: #423d2d; font-size: 20px; font-weight: 600; left: 150px; top: -5px;">明信片 | 幕後</font>
+          <div class="label">50元</div>
+            <input name="good8" type="number" value="0"min="0" max="999" placeholder="請輸入數量" style="color: #000000; font-size: 16px; font-weight: 600; text-align: center; border: #423d2d; width: 100px; height: 40px; margin-left: 200px; margin-top: -35px">
+        </div>
+      </div>
+      <hr width="100%" size="2" color="#89ab80" noshade>
+      <div class="box">
+        <font style="position: relative; color: #423d2d; font-family: sans-serif; font-weight: 600; font-size: 20px; width: 60px; height: 40px; left: 100px; top: 5px">姓名：</font>
+        <input name="name" value="" placeholder="請輸入姓名" style="color: #000000; font-size: 16px; font-weight: 600; text-align: left; border: #423d2d; width: 150px; height: 40px; margin-left: 100px; margin-top: 20px">
+        <font style="position: relative; color: #423d2d; font-family: sans-serif; font-weight: 600; font-size: 20px; width: 60px; height: 40px; left: 100px; top: 5px">電話：</font>
+        <input name="phone" value="" placeholder="請輸入電話" style="color: #000000; font-size: 16px; font-weight: 600; text-align: left; border: #423d2d; width: 150px; height: 40px; margin-left: 100px; margin-top: 20px">
+        <font style="position: relative; color: #423d2d; font-family: sans-serif; font-weight: 600; font-size: 20px; width: 60px; height: 40px; left: 100px; top: 5px">地址：</font>
+        <input name="address" value="" placeholder="請輸入地址" style="color: #000000; font-size: 16px; font-weight: 600; text-align: left; border: #423d2d; width: 300px; height: 40px; margin-left: 100px; margin-top: 20px">
+        <button class="button" role="button">確認購買</button>
+      </div>
+        </form>
+  		<div class="bottom">
+  			<div class="copyright">
+  	        <p style="color:#423d2d">© 嘉大資管 鹿上有草</p>
+  	        <p style="color:#423d2d">Website Design By 鹿上有草</p>
+            <p style="color:#423d2d">更新日期：2023年01月03日</p>
+        </div>
+        <div class="tbocc">
+            <a href="https://tbocc.cyhg.gov.tw/" title="嘉義縣文化觀光局" aria-pressed="false"><img src="./img/tbocc.png" id="tbocc" alt="嘉義縣文化觀光局"/></a>
+        </div>
+        <div class="office">
+            <a href="https://lutsau.cyhg.gov.tw/Default.aspx" title="鹿草鄉公所" aria-pressed="false"><img src="./img/lutsao.png" id="lutsao" alt="鹿草鄉公所"/></a>
+        </div>
+        <div class="qr-code">
+            <a href="https://www.youtube.com/watch?v=cKyZvwjsN6E" title="QR Code" aria-pressed="false"><img src="./img/qr-code.png" id="qr-codeo" alt="網頁程式設計期末專題_第四組_鹿上有草 - YouTube"/></a>
+        </div>
+  	    <div class="up_arrow">
+  	        <a href="#" title="up_arrow" aria-pressed="false"><img src="./img/up-arrow.png" id="top" alt="up_arrow" /></a>
+      	</div>
+  	  </div>
+    </div>
+	</body>
+</html>

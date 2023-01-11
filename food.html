@@ -1,0 +1,231 @@
+<!--111-1 網頁程式設計專題 鄉鎮：鹿草鄉 名稱：鹿上有草 美食推薦-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="author" content="Grass on the Deer">
+		<meta name=“keywords” content=“webprogramming”>
+		<meta name="viewport" content="width=device-width; initialscale=1.0; maximum-scale=1.0; user-scalable=0;">
+		<title>鹿上有草 | 美食推薦</title>
+    <link rel="icon" href="./img/lucao.ico" type="image/x-icon"/>
+	</head>
+	<body bgcolor=#e2f0d9>
+		<style type="text/css">
+        .main{
+          width: 1500px;
+          margin: auto;
+        }
+        .topp{ /*頂部標題*/
+          float: middle;
+          text-align: middle5;
+          width: 100%;
+          height: 200px;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .toplogo{ /*頂部LOGO*/
+          float: left;
+          width: 246px;
+          padding: 20px;
+        }
+        .toplogo img{
+          display: block;
+          width:55%;
+        }
+        #title{
+          margin-top: 20px;
+          margin-left: -40px;
+        }
+        .menu{ /*功能選單*/
+          position: sticky;
+          float: left;
+          text-align: right;
+          width: 100%;
+          height: 40px;
+          margin: 10px auto;
+          overflow: hidden;
+          background-color: #a9d18e;
+        }
+        .menu a:hover {
+          opacity:0.7;
+        }
+        .box{ /*景點選單*/
+          width: 100%;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+          background-color: #afbfac;
+        }
+        .main_title{
+          position: relative;
+          left: 20px;
+        }
+        .attract_header{
+          width: 1500px;
+          height: 600px;
+          /*background-color: rgba(0, 0, 0, .6);*/ /*透明度 0.6 的黑色半透明遮罩*/
+          /*background-blend-mode: multiply;*/
+          background-size: cover;
+          background-position: center center;
+          z-index: -1;
+          transform:scale(1,1);transition: all 1s ease-out;
+        }
+        .attract_header:hover{
+          transform:scale(1.2,1.2);
+          overflow:hidden;
+        }
+        .attract_header a:hover a:link{
+          background-blend-mode: color-dodge;
+          text-decoration: underline;
+          opacity: 0.8;
+        }
+        a {
+          color: #ffffff;
+          text-decoration: none;
+        }
+        a:hover{
+          text-decoration: underline;
+          text-decoration-color: #afbfac;
+          text-shadow: 1px 1px 2px #000;
+        }
+        .mask{
+          position: relative;
+          width: 1500px;
+          height: 600px;
+          background-color: rgba(0, 0, 0, .6);
+          z-index: 1;
+        }
+        .mask:hover{
+          background-color: rgba(0, 0, 0, 0);
+        }
+        .bottom{
+          width: 100%;
+          margin: 10px auto;
+          border:solid 1px none;
+          overflow: hidden;
+        }
+        .copyright{
+          float: left;
+          padding: 20px;
+        }
+        .tbocc{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 300px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .tbocc img{
+          display: block;
+          width: 100%;
+        }
+        .office{
+          display: flex;
+          justify-content: center; 
+          align-items: center;
+          float: left;
+          width: 200px;
+          margin: 0 auto;
+          margin-left: 10px;
+          margin-top: 30px;
+        }
+        .office img{
+          display: block;
+          width: 100%;
+        }
+        .qr-code{
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          float: left;
+          width: 120px;
+          height: 120px;
+          margin: 0 auto;
+          margin-left: 30px;
+          margin-top: 10px;
+        }
+        .qr-code img{
+          display: block;
+          width: 100%;
+        }
+        .up_arrow{
+          position: sticky;
+          float: right;
+          width: 32px;
+          padding: 20px;
+        }
+        .up_arrow img{
+          display: default;
+          width: 100%;
+        }
+        .up_arrow a:hover {
+          opacity: 0.7;
+    		}
+    	</style>
+    <div class="main"><!---防止縮放後版面跑掉--->
+      <div class="topp">
+        <div class="toplogo">
+            <a href="project.html"><img src="./img/toplogo.png" id="toplogo" alt="回到首頁"/></a>
+        </div>
+        <a href="project.html" title="鹿上有草" aria-pressed="false"><img src="./img/title.jpg" id="title" alt="鹿上有草"/></a>
+      </div>
+      <div class="menu" align="left">
+        <a href="project.html" title="首頁" aria-pressed="false"><img src="./img/homepage.png" id="homepage" alt="首頁"/></a>
+        <a href="about.html" title="關於鹿草" aria-pressed="false"><img src="./img/about.png" id="about" alt="關於鹿草"/></a>
+        <a href="attract.html" title="景點介紹" aria-pressed="false"><img src="./img/attract.png" id="attract" alt="景點介紹"/></a>
+        <a href="store.html" title="線上商店" aria-pressed="false"><img src="./img/store.png" id="store" alt="線上商店"/></a>
+        <a href="food.html" title="美食推薦" aria-pressed="false"><img src="./img/food.png" id="food" alt="美食推薦"/></a>
+        <a href="ourteam.html" title="關於我們" aria-pressed="false"><img src="./img/team.png" id="team" alt="關於我們"/></a>
+      </div>
+      <div class="box" >
+        <div class="main_title"style="margin-bottom: 0px;">
+          <p style="color:#423d2d; font-weight:bold"><font size="9"><br>▌ 美食推薦</font></p>
+        </div>
+      </div>
+  		<div class="box">    
+        <a href="lukoufood.html"><div class="attract_header" style="background-image: url('./img/lukoufood.jpg')"><div class="mask">
+          <center><p style="position: relative; top: 280px; font-weight: 500; margin:0; font-size: 45px; z-index: 1;">鹿口飯食</p></center>
+        </div></div></a>
+        <a href="coffeebts.html"><div class="attract_header" style="background-image: url('./img/coffeebts.jpg')"><div class="mask">
+          <center><p style="position: relative; top: 280px; font-weight: 500; margin:0; font-size: 45px; z-index: 1;">幕後咖啡</p></center>
+        </div></div></a>
+        <a href="aqi.html"><div class="attract_header" style="background-image: url('./img/aqi.jpg')"><div class="mask">
+          <center><p style="position: relative; top: 280px; font-weight: 500; margin:0; font-size: 45px; z-index: 1;">阿期羊肉</p></center>
+        </div></div></a>
+        <a href="ahsiang.html"><div class="attract_header" style="background-image: url('./img/ahsiang.jpg')"><div class="mask">
+          <center><p style="position: relative; top: 280px; font-weight: 500; margin:0; font-size: 45px; z-index: 1;">阿香當歸鴨肉</p></center>
+        </div></div></a>
+        <a href="nightmarket.html"><div class="attract_header" style="background-image: url('./img/nightmarket.jpg')"><div class="mask">
+          <center><p style="position: relative; top: 280px; font-weight: 500; margin:0; font-size: 45px; z-index: 1;">鹿草夜市</p></center>
+        </div></div></a>
+        <a href="rihe.html"><div class="attract_header" style="background-image: url('./img/rihe.jpg')"><div class="mask">
+           <center><p style="position: relative; top: 280px; font-weight: 500; margin:0; font-size: 45px; z-index: 1;">日和製冰部</p></center>
+        </div></div></a>
+      </div>
+  		<div class="bottom">
+  			<div class="copyright">
+  	        <p style="color:#423d2d">© 嘉大資管 鹿上有草</p>
+  	        <p style="color:#423d2d">Website Design By 鹿上有草</p>
+            <p style="color:#423d2d">更新日期：2023年01月03日</p>
+        </div>
+        <div class="tbocc">
+            <a href="https://tbocc.cyhg.gov.tw/" title="嘉義縣文化觀光局" aria-pressed="false"><img src="./img/tbocc.png" id="tbocc" alt="嘉義縣文化觀光局"/></a>
+        </div>
+        <div class="office">
+            <a href="https://lutsau.cyhg.gov.tw/Default.aspx" title="鹿草鄉公所" aria-pressed="false"><img src="./img/lutsao.png" id="lutsao" alt="鹿草鄉公所"/></a>
+        </div>
+        <div class="qr-code">
+            <a href="https://www.youtube.com/watch?v=cKyZvwjsN6E" title="QR Code" aria-pressed="false"><img src="./img/qr-code.png" id="qr-codeo" alt="網頁程式設計期末專題_第四組_鹿上有草 - YouTube"/></a>
+        </div>
+  	    <div class="up_arrow">
+  	        <a href="#" title="up_arrow" aria-pressed="false"><img src="./img/up-arrow.png" id="top" alt="up_arrow" /></a>
+      	</div>
+  	  </div>
+    </div>
+	</body>
+</html>
